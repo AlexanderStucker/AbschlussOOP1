@@ -25,4 +25,12 @@ public class Kundenberater {
         this.language = language;
     }
     
+
+
+
+
+    @Override
+    public String toString(){
+        return name;
+    }
 }
