@@ -1,3 +1,5 @@
+package abschlussoop1.arbeit;
+
 
 public class VersichertePerson {
 
