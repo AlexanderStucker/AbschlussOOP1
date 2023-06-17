@@ -1,30 +1,40 @@
 package abschlussoop1.arbeit;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Kundenberater {
 
-    private String name;
-    private String language;
+    private SimpleStringProperty name = new SimpleStringProperty();
+    private SimpleStringProperty language = new SimpleStringProperty();
 
     // Konstruktor
     public Kundenberater(String name, String language){
-        this.name = name;
-        this.language = language;
+        this.setName(name);
+        this.setLanguage(language);
+    }
+
+    public SimpleStringProperty nameProperty(){
+        return this.name;
     }
 
     public String getName() {
-        return name;
+        return name.get();
+    }
+
+    public void setName(String name) {
+        this.name.set(name);
+    }
+
+    public SimpleStringProperty languageProperty(){
+        return this.name;
     }
 
     public String getLanguage() {
-        return language;
-    }
-
-      public void setName(String name) {
-        this.name = name;
+        return language.get();
     }
 
     public void setLanguage(String language) {
-        this.language = language;
+        this.language.set(language);
     }
     
 
@@ -33,6 +43,6 @@ public class Kundenberater {
 
     @Override
     public String toString(){
-        return name;
+        return getName();
     }
 }

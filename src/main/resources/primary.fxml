@@ -20,11 +20,11 @@
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <TableView layoutY="14.0" prefHeight="330.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="versicherteTable" layoutY="14.0" prefHeight="330.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
-                                        <TableColumn prefWidth="126.0" text="Name" />
-                                        <TableColumn prefWidth="133.0" text="Vorname" />
-                                          <TableColumn prefWidth="100.0" text="Franchise" />
+                                        <TableColumn fx:id="nameColumn" prefWidth="126.0" text="Name" />
+                                        <TableColumn fx:id="vornameColumn" prefWidth="133.0" text="Vorname" />
+                                          <TableColumn fx:id="franchiseColumn" prefWidth="100.0" text="Franchise" />
                                           <TableColumn prefWidth="98.0" text="Berater" />
                                       </columns>
                                     </TableView>
@@ -32,9 +32,9 @@
                               </AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                                  <children>
-                                    <Button layoutX="33.0" layoutY="5.0" mnemonicParsing="false" text="Neu" AnchorPane.leftAnchor="20.0" />
-                                    <Button layoutX="263.0" layoutY="5.0" mnemonicParsing="false" text="Bearbeiten" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="260.0" />
-                                    <Button layoutX="487.0" layoutY="5.0" mnemonicParsing="false" text="Löschen" AnchorPane.rightAnchor="20.0" />
+                                    <Button fx:id="neuButton" layoutX="33.0" layoutY="5.0" mnemonicParsing="false" onAction="#openAddPersonWindow" text="Neu" AnchorPane.leftAnchor="20.0" />
+                                    <Button fx:id="bearbeitenButton" layoutX="263.0" layoutY="5.0" mnemonicParsing="false" onAction="#editSelectedPerson" text="Bearbeiten" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="260.0" />
+                                    <Button fx:id="deleteButton" layoutX="487.0" layoutY="5.0" mnemonicParsing="false" onAction="#deleteSelectedPerson" text="Löschen" AnchorPane.rightAnchor="20.0" />
                                  </children>
                               </AnchorPane>
                           </items>
