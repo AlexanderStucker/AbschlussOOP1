@@ -8,15 +8,15 @@ public class VersichertePerson {
     private SimpleStringProperty name = new SimpleStringProperty();
     private SimpleStringProperty vorname = new SimpleStringProperty();
     private SimpleIntegerProperty franchise_defaulte = new SimpleIntegerProperty();
-
-    // private Kundenberater kundenberater;
+    private Kundenberater kundenberater;
 
 
     //Konstruktor
-    public VersichertePerson(String name,String vorname, int franchise_defaulte){
+    public VersichertePerson(String name,String vorname, int franchise_defaulte, Kundenberater kundenberater){
         this.setName(name);
         this.setVorname(vorname);
-        this.setFranchise(300);
+        this.setFranchise(franchise_defaulte);
+        this.setKundenberater(kundenberater);
     }
 
     public SimpleStringProperty nameProperty(){
@@ -54,6 +54,14 @@ public class VersichertePerson {
 
     public void setFranchise(int franchise) {
         this.franchise_defaulte.set(franchise);
+    }
+
+    public Kundenberater getKundenberater() {
+        return kundenberater;
+    }
+
+    public void setKundenberater(Kundenberater kundenberater) {
+        this.kundenberater = kundenberater;
     }
 
         

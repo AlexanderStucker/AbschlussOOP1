@@ -8,33 +8,33 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="abschlussoop1.arbeit.PrimaryController">
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="abschlussoop1.arbeit.PrimaryController">
    <children>
-      <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="481.0" prefWidth="595.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab text="Versicherte Person">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane>
                      <children>
-                        <SplitPane dividerPositions="0.8918918918918919" orientation="VERTICAL" prefHeight="372.0" prefWidth="600.0">
+                        <SplitPane dividerPositions="0.8918918918918919" orientation="VERTICAL" prefHeight="452.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <items>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                            <AnchorPane>
                                  <children>
-                                    <TableView fx:id="versicherteTable" layoutY="14.0" prefHeight="330.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="versicherteTable" layoutY="14.0" prefHeight="414.0" prefWidth="593.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
                                         <TableColumn fx:id="nameColumn" prefWidth="126.0" text="Name" />
                                         <TableColumn fx:id="vornameColumn" prefWidth="133.0" text="Vorname" />
                                           <TableColumn fx:id="franchiseColumn" prefWidth="100.0" text="Franchise" />
-                                          <TableColumn prefWidth="98.0" text="Berater" />
+                                          <TableColumn fx:id="beraterColumn" prefWidth="98.0" text="Berater" />
                                       </columns>
                                     </TableView>
                                  </children>
                               </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                            <AnchorPane>
                                  <children>
-                                    <Button fx:id="neuButton" layoutX="33.0" layoutY="5.0" mnemonicParsing="false" onAction="#openAddPersonWindow" text="Neu" AnchorPane.leftAnchor="20.0" />
-                                    <Button fx:id="bearbeitenButton" layoutX="263.0" layoutY="5.0" mnemonicParsing="false" onAction="#editSelectedPerson" text="Bearbeiten" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="260.0" />
-                                    <Button fx:id="deleteButton" layoutX="487.0" layoutY="5.0" mnemonicParsing="false" onAction="#deleteSelectedPerson" text="Löschen" AnchorPane.rightAnchor="20.0" />
+                                    <Button fx:id="neuButton" layoutX="33.0" layoutY="5.0" mnemonicParsing="false" onAction="#openAddPersonWindow" text="Neu" />
+                                    <Button fx:id="bearbeitenButton" layoutX="263.0" layoutY="5.0" mnemonicParsing="false" onAction="#editSelectedPerson" text="Bearbeiten" />
+                                    <Button fx:id="deleteButton" layoutX="487.0" layoutY="5.0" mnemonicParsing="false" onAction="#deleteSelectedPerson" text="Löschen" />
                                  </children>
                               </AnchorPane>
                           </items>

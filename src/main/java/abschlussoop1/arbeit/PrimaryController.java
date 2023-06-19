@@ -28,6 +28,9 @@ public class PrimaryController {
     private TableColumn<VersichertePerson, Integer> franchiseColumn;
 
     @FXML
+    private TableColumn<VersichertePerson, String> beraterColumn;
+
+    @FXML
     private Button neuButton;
 
     @FXML
@@ -42,6 +45,7 @@ public class PrimaryController {
         this.nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         this.vornameColumn.setCellValueFactory(cellData -> cellData.getValue().vornameProperty());
         this.franchiseColumn.setCellValueFactory(cellData -> cellData.getValue().franchiseProperty().asObject());
+        this.beraterColumn.setCellValueFactory(cellData -> cellData.getValue().getKundenberater().nameProperty());
 
         this.versicherteTable.setItems(App.getVersichgerungsList());
     }
@@ -90,5 +94,15 @@ public class PrimaryController {
             App.getVersichgerungsList().remove(selectedPerson);
         }
     }
+    
+
+    //Der Kundenberater hat es nach dem EditVersichertePerson nicht automatisch aktualisiert. Diese Methode sorgt für den Refresh der versichertenTable
+    public void updatePerson(VersichertePerson updatedPerson) {
+    int index = App.getVersichgerungsList().indexOf(updatedPerson);
+    if (index >= 0) {
+        App.getVersichgerungsList().set(index, updatedPerson);
+        versicherteTable.refresh();
+    }
+}
 
 }

@@ -13,10 +13,13 @@ import java.io.IOException;
 public class App extends Application {
 
     private static ObservableList<VersichertePerson> versicherungsList = FXCollections.observableArrayList();
+    private static ObservableList<Kundenberater> kundenberaterList = FXCollections.observableArrayList();
 
     public App(){
-        versicherungsList.add(new VersichertePerson("Stucker", "Alexander", 0));
-        versicherungsList.add(new VersichertePerson("Müller", "Hans", 0));
+        kundenberaterList.add(new Kundenberater("Berater Nordschweiz", "Deutsch"));
+        kundenberaterList.add(new Kundenberater("Berater Südschweiz", "Italiänisch"));
+        kundenberaterList.add(new Kundenberater("Berater Westschweiz", "Französisch"));
+        kundenberaterList.add(new Kundenberater("Berater Ostschweiz", "Englisch"));
     }
 
     private static Scene scene;
@@ -27,6 +30,10 @@ public class App extends Application {
 
         public static ObservableList<VersichertePerson> getVersichgerungsList(){
         return versicherungsList;
+    }
+
+     public static ObservableList<Kundenberater> getKundenberaterList() {
+        return kundenberaterList;
     }
 
     @Override
