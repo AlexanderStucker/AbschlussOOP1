@@ -20,13 +20,16 @@
                           <items>
                             <AnchorPane>
                                  <children>
-                                    <TableView fx:id="versicherteTable" layoutY="14.0" prefHeight="414.0" prefWidth="593.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <TableView fx:id="versicherteTable" layoutY="14.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <columns>
                                         <TableColumn fx:id="nameColumn" prefWidth="126.0" text="Name" />
                                         <TableColumn fx:id="vornameColumn" prefWidth="133.0" text="Vorname" />
                                           <TableColumn fx:id="franchiseColumn" prefWidth="100.0" text="Franchise" />
-                                          <TableColumn fx:id="beraterColumn" prefWidth="98.0" text="Berater" />
+                                          <TableColumn fx:id="beraterColumn" minWidth="-1.0" prefWidth="233.0" text="Berater" />
                                       </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
                                     </TableView>
                                  </children>
                               </AnchorPane>
@@ -43,9 +46,20 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Kundenberater">
+          <Tab text="Kundenberater Statistik">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              <AnchorPane>
+                     <children>
+                        <TableView fx:id="statistikTable" layoutX="22.0" layoutY="26.0" prefHeight="452.0" prefWidth="595.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="statistikKundenberaterColumn" prefWidth="249.0" text="Kundenberater" />
+                            <TableColumn fx:id="statistikAnzahlKundenColumn" prefWidth="345.0" text="Anzahl betreuter Kunden" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children></AnchorPane>
             </content>
           </Tab>
         </tabs>

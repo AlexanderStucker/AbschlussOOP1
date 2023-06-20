@@ -24,7 +24,8 @@ public class EditVersicherteController {
     @FXML
     private Button okButton;
 
-    @FXML Button abbruchButton;
+    @FXML 
+    private Button abbruchButton;
     
     
     
