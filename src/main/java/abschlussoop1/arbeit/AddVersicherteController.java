@@ -26,7 +26,7 @@ public class AddVersicherteController {
     @FXML Button abbruchButton;
     
 
-    //Methode um eine neue VersicherteP zu erfassen
+    //Methode um eine neue VersichertePerson zu erfassen
     @FXML
     public void addPerson() {
         String name = nameTextField.getText(); 

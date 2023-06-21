@@ -2,6 +2,7 @@ package abschlussoop1.arbeit;
 
 
 import java.io.IOException;
+import java.util.Optional;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextInputDialog;
 import javafx.stage.Stage;
 
 
@@ -52,6 +54,9 @@ public class PrimaryController {
     @FXML
     private TableColumn<KundenberaterStatistik, Integer> statistikAnzahlKundenColumn;
 
+    @FXML
+    private Button neuerBeraterButton;
+
 
     @FXML
     public void initialize() {
@@ -62,13 +67,14 @@ public class PrimaryController {
         this.beraterColumn.setCellValueFactory(cellData -> cellData.getValue().getKundenberater().nameProperty());
 
         //Initialisierung der Kundenberater-Statistik-Tabelle
-        statistikKundenberaterColumn.setCellValueFactory(cellData -> cellData.getValue().kundenberaterProperty());
-        statistikAnzahlKundenColumn.setCellValueFactory(cellData -> cellData.getValue().anzahlKundenProperty().asObject());
+        this.statistikKundenberaterColumn.setCellValueFactory(cellData -> cellData.getValue().kundenberaterProperty());
+        this.statistikAnzahlKundenColumn.setCellValueFactory(cellData -> cellData.getValue().anzahlKundenProperty().asObject());
 
         this.versicherteTable.setItems(App.getVersichgerungsList());
+        updateKundenberaterStatistik();
     }
 
-    //Person hinzufügen
+    //VersichertePerson hinzufügen
     @FXML
     public void openAddPersonWindow() {
         try {
@@ -83,7 +89,7 @@ public class PrimaryController {
         }
     }
 
-    //Person bearbeiten
+    //VersichertePerson bearbeiten
     @FXML
     public void editSelectedPerson() {
         VersichertePerson selectedPerson = versicherteTable.getSelectionModel().getSelectedItem();
@@ -107,7 +113,8 @@ public class PrimaryController {
     }
 
 
-    //Person löschen
+    //VersichertePerson löschen
+    @FXML
     public void deleteSelectedPerson() {
         VersichertePerson selectedPerson = versicherteTable.getSelectionModel().getSelectedItem();
         if (selectedPerson != null) {
@@ -118,6 +125,7 @@ public class PrimaryController {
 
 
     //Methode zum Aktualisieren der Statistik nachdem ein Kunde erfasst/gelöscht/bearbeitet wurde
+    @FXML
     public void updateKundenberaterStatistik() {
     ObservableList<KundenberaterStatistik> statistikList = FXCollections.observableArrayList();
 
@@ -138,9 +146,28 @@ public class PrimaryController {
     }
     // aktualisierte Tabelle setzen
     statistikTable.setItems(statistikList);
-}
+    }
 
 
+    //Neuer Kundenberater erfassen
+    @FXML
+    public void neuerBeraterButtonClicked() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Neuer Berater hinzufügen");
+        dialog.setHeaderText(null);
+        dialog.setContentText("Geben Sie den Namen des Beraters ein:");
+
+        Optional<String> result = dialog.showAndWait();
+        result.ifPresent(name -> {
+            Kundenberater neuerBerater = new Kundenberater(name, "Sprache");
+            App.getKundenberaterList().add(neuerBerater);
+            updateKundenberaterStatistik();
+        });
+    }
+
+
+
+    
     //Der Kundenberater hat es nach dem EditVersichertePerson nicht automatisch aktualisiert. Diese Methode sorgt für den Refresh der versichertenTable
     public void updatePerson(VersichertePerson updatedPerson) {
     int index = App.getVersichgerungsList().indexOf(updatedPerson);

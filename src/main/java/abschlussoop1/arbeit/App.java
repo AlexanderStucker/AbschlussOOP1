@@ -14,12 +14,14 @@ public class App extends Application {
 
     private static ObservableList<VersichertePerson> versicherungsList = FXCollections.observableArrayList();
     private static ObservableList<Kundenberater> kundenberaterList = FXCollections.observableArrayList();
+    private static ObservableList<KundenberaterStatistik> statistikList = FXCollections.observableArrayList();
 
     public App(){
         kundenberaterList.add(new Kundenberater("Berater Nordschweiz", "Deutsch"));
         kundenberaterList.add(new Kundenberater("Berater Südschweiz", "Italiänisch"));
         kundenberaterList.add(new Kundenberater("Berater Westschweiz", "Französisch"));
         kundenberaterList.add(new Kundenberater("Berater Ostschweiz", "Englisch"));
+
     }
 
     private static Scene scene;
@@ -28,12 +30,16 @@ public class App extends Application {
         launch();
     }
 
-        public static ObservableList<VersichertePerson> getVersichgerungsList(){
+    public static ObservableList<VersichertePerson> getVersichgerungsList(){
         return versicherungsList;
     }
 
-     public static ObservableList<Kundenberater> getKundenberaterList() {
+    public static ObservableList<Kundenberater> getKundenberaterList() {
         return kundenberaterList;
+    }
+
+    public static ObservableList<KundenberaterStatistik> gKundenberaterStatistiks(){
+        return statistikList;
     }
 
     @Override
